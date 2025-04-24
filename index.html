@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototipo Interattivo - Tabelle Gruppi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Prototipo Interattivo - Tabelle Gruppi</h1>
+
+    <!-- Gruppo 1 -->
+    <div class="group">
+      <div class="group-header" onclick="toggleTable('group1-table')">
+        <h2>Gruppo 1</h2>
+        <span class="toggle-icon">+</span>
+      </div>
+      <table id="group1-table" class="styled-table collapsible">
+        <thead>
+          <tr>
+            <th>Domanda</th>
+            <th>Utente</th>
+            <th>First Answer</th>
+            <th>Valutazione First Answer</th>
+            <th>Utente 1</th>
+            <th>Utente 2</th>
+            <th>Revisione First Answer</th>
+            <th>Valutazione Revisione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">Qual è il tuo colore preferito?</td>
+            <td>Utente 1</td>
+            <td>Blu</td>
+            <td>4/5</td>
+            <td>-</td>
+            <td>"Ottima risposta, ma potresti essere più specifico?"</td>
+            <td>Blu scuro</td>
+            <td>5/5</td>
+          </tr>
+          <tr>
+            <td>Utente 2</td>
+            <td>Verde</td>
+            <td>3/5</td>
+            <td>"Interessante, ma perché proprio verde?"</td>
+            <td>-</td>
+            <td>Verde smeraldo</td>
+            <td>4/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Gruppo 2 -->
+    <div class="group">
+      <div class="group-header" onclick="toggleTable('group2-table')">
+        <h2>Gruppo 2</h2>
+        <span class="toggle-icon">+</span>
+      </div>
+      <table id="group2-table" class="styled-table collapsible">
+        <thead>
+          <tr>
+            <th>Domanda</th>
+            <th>Utente</th>
+            <th>First Answer</th>
+            <th>Valutazione First Answer</th>
+            <th>Utente 1</th>
+            <th>Utente 2</th>
+            <th>Revisione First Answer</th>
+            <th>Valutazione Revisione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">Qual è il tuo animale preferito?</td>
+            <td>Utente 1</td>
+            <td>Cane</td>
+            <td>5/5</td>
+            <td>-</td>
+            <td>"Bella risposta, ma potresti specificare la razza?"</td>
+            <td>Cane Labrador</td>
+            <td>4/5</td>
+          </tr>
+          <tr>
+            <td>Utente 2</td>
+            <td>Gatto</td>
+            <td>4/5</td>
+            <td>"Perché non hai scelto un cane?"</td>
+            <td>-</td>
+            <td>Gatto Persiano</td>
+            <td>3/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
