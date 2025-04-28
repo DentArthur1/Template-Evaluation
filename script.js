@@ -34,20 +34,22 @@ function closeModal() {
 }
 
 // Funzione per espandere o comprimere i commenti direttamente nella tabella
-function toggleComment(element, comment, header, valutazioneForma, valutazioneContenuto) {
-  // Trova la riga della tabella (tr) e le celle (td)
+function toggleComment(element, comment, valutazioneForma, valutazioneContenuto) {
+  // Trova la riga della tabella (tr) e la cella corrente (td)
   const row = element.closest('tr');
-  const previousRow = row.previousElementSibling;
-  const cells = row.querySelectorAll('td');
+  const allRows = Array.from(row.parentElement.children);
 
-  // Prendi dinamicamente i valori di "Utente 1" e "Utente 2" dalle colonne
-  const utente1 = cells[1]?.textContent.trim() || 'Utente 1';
-  const utente2 = previousRow
-    ? previousRow.querySelectorAll('td')[1]?.textContent.trim() || 'Utente 2'
-    : 'Utente 2';
+  // Trova dinamicamente tutti gli utenti nella colonna "Utente"
+  const utenti = allRows.map(riga => riga.querySelectorAll('td')[1]?.textContent.trim()).filter(Boolean);
 
-  // Genera l'header dinamico
-  const dynamicHeader = `${utente2} valuta ${utente1}`;
+  // Trova l'indice dell'utente corrente
+  const currentUserIndex = utenti.indexOf(row.querySelectorAll('td')[1]?.textContent.trim());
+
+  // Genera l'header dinamico con tutti gli altri utenti che valutano l'utente corrente
+  const dynamicHeader = utenti
+    .filter((_, index) => index !== currentUserIndex)
+    .map(utente => `${utente} valuta ${utenti[currentUserIndex]}`)
+    .join(', ');
 
   if (element.classList.contains('expanded')) {
     // Comprimi il commento
@@ -55,7 +57,7 @@ function toggleComment(element, comment, header, valutazioneForma, valutazioneCo
     element.classList.add('truncate');
     element.innerHTML = `
       <p>"${comment}"</p>
-      <button class="expand-button" onclick="toggleComment(this.parentElement, '${comment}', '${dynamicHeader}', ${valutazioneForma}, ${valutazioneContenuto})">🔍</button>
+      <button class="expand-button" onclick="toggleComment(this.parentElement, '${comment}', ${valutazioneForma}, ${valutazioneContenuto})">🔍</button>
     `;
   } else {
     // Espandi il commento
@@ -76,7 +78,7 @@ function toggleComment(element, comment, header, valutazioneForma, valutazioneCo
         <label for="valutazione-docente" class="block font-semibold">Valutazione Docente:</label>
         <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1 mt-1" value="0" min="0" max="5">
       </div>
-      <button class="close-button" onclick="toggleComment(this.parentElement, '${comment}', '${dynamicHeader}', ${valutazioneForma}, ${valutazioneContenuto})">Chiudi</button>
+      <button class="close-button" onclick="toggleComment(this.parentElement, '${comment}', ${valutazioneForma}, ${valutazioneContenuto})">Chiudi</button>
     `;
   }
 }
