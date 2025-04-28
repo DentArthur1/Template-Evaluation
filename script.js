@@ -32,7 +32,20 @@ function closeModal() {
   modal.style.display = 'none';
   overlay.style.display = 'none';
 }
+function toggleCellContent(cell, content, label) {
+  const isExpanded = cell.classList.contains('expanded');
+  const paragraph = cell.querySelector('p');
 
+  if (isExpanded) {
+    // Riduci il contenuto
+    cell.classList.remove('expanded');
+    paragraph.textContent = `"${label}"`;
+  } else {
+    // Espandi il contenuto
+    cell.classList.add('expanded');
+    paragraph.textContent = `"${content}"`;
+  }
+}
 // Funzione per espandere o comprimere i commenti direttamente nella tabella
 function toggleComment(element, comment, valutazioneForma, valutazioneContenuto) {
   // Trova la riga della tabella (tr) e la cella corrente (td)
@@ -64,7 +77,7 @@ function toggleComment(element, comment, valutazioneForma, valutazioneContenuto)
     element.classList.remove('truncate');
     element.classList.add('expanded');
     element.innerHTML = `
-      <div class="comment-header">${dynamicHeader}</div>
+     
       <div class="comment-content">
         <div class="comment-text">
           <p>"${comment}"</p>

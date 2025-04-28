@@ -27,26 +27,188 @@
             <th class="border border-gray-300 px-4 py-2">Valutazione First Answer</th>
             <th class="border border-gray-300 px-4 py-2">Utente 1</th>
             <th class="border border-gray-300 px-4 py-2">Utente 2</th>
+            <th class="border border-gray-300 px-4 py-2">Utente 3</th> <!-- Nuova colonna -->
             <th class="border border-gray-300 px-4 py-2">Revisione First Answer</th>
             <th class="border border-gray-300 px-4 py-2">Valutazione Revisione</th>
           </tr>
         </thead>
         <tbody>
+          <!-- Riga per Utente 1 -->
           <tr class="bg-gray-100 hover:bg-gray-200">
-            <td class="border border-gray-300 px-4 py-2" rowspan="2">Qual è il tuo colore preferito?</td>
+            <td class="border border-gray-300 px-4 py-2" rowspan="3">Qual è il tuo colore preferito?</td>
             <td class="border border-gray-300 px-4 py-2">Utente 1</td>
-            <td class="border border-gray-300 px-4 py-2">Blu</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Blu"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Blu', 'First Answer')">🔍</button>
+            </td>
             <td class="border border-gray-300 px-4 py-2">
               <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.0" min="0" max="5">
             </td>
             <td class="border border-gray-300 px-4 py-2">-</td>
             <td class="border border-gray-300 px-4 py-2 truncate">
               <p>"Ottima risposta, ma potresti essere più specifico?"</p>
-              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Ottima risposta, ma potresti essere più specifico?', 4.5, 4.0)">
-                🔍
-              </button>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Ottima risposta, ma potresti essere più specifico?', 4.5, 4.0)">🔍</button>
             </td>
-            <td class="border border-gray-300 px-4 py-2">Blu scuro</td>
+            <td class="border border-gray-300 px-4 py-2 truncate"> <!-- Nuova cella -->
+              <p>"Interessante, ma perché non un altro colore?"</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Interessante, ma perché non un altro colore?', 4.2, 4.0)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Blu scuro"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Blu scuro', 'Revisione First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="5.0" min="0" max="5">
+            </td>
+          </tr>
+          <!-- Riga per Utente 2 -->
+          <tr class="bg-gray-100 hover:bg-gray-200">
+            <td class="border border-gray-300 px-4 py-2">Utente 2</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Verde"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Verde', 'First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="3.5" min="0" max="5">
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Forse un verde più chiaro sarebbe migliore."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Forse un verde più chiaro sarebbe migliore.', 4.1, 3.5)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>-</p>
+              </td>
+            <td class="border border-gray-300 px-4 py-2 truncate"> <!-- Nuova cella -->
+              <p>"Forse un verde più chiaro sarebbe migliore."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Forse un verde più chiaro sarebbe migliore.', 4.1, 3.5)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Verde smeraldo"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Verde smeraldo', 'Revisione First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.0" min="0" max="5">
+            </td>
+          </tr>
+          <!-- Riga per Utente 3 -->
+          <tr class="bg-gray-100 hover:bg-gray-200">
+            <td class="border border-gray-300 px-4 py-2">Utente 3</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Rosso"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Rosso', 'First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.8" min="0" max="5">
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Forse un verde più chiaro sarebbe migliore."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Forse un verde più chiaro sarebbe migliore.', 4.1, 3.5)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Il rosso è il colore della passione."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Il rosso è il colore della passione.', 4.7, 4.8)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate"> <!-- Nuova cella -->
+              <p>-</p>
+               </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Rosso scuro"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Rosso scuro', 'Revisione First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.9" min="0" max="5">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Gruppo 2 -->
+    <div class="group mb-8">
+      <div class="group-header flex justify-between items-center bg-blue-500 text-white p-4 rounded-t cursor-pointer" onclick="toggleTable('group2-table')">
+        <h2 class="text-xl font-semibold">Gruppo 2</h2>
+        <span class="toggle-icon text-2xl font-bold">+</span>
+      </div>
+      <table id="group2-table" class="styled-table collapsible table-auto w-full border-collapse border border-gray-300 hidden">
+        <thead class="bg-blue-500 text-white">
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">Domanda</th>
+            <th class="border border-gray-300 px-4 py-2">Utente</th>
+            <th class="border border-gray-300 px-4 py-2">First Answer</th>
+            <th class="border border-gray-300 px-4 py-2">Valutazione First Answer</th>
+            <th class="border border-gray-300 px-4 py-2">Utente 1</th>
+            <th class="border border-gray-300 px-4 py-2">Utente 2</th>
+            <th class="border border-gray-300 px-4 py-2">Revisione First Answer</th>
+            <th class="border border-gray-300 px-4 py-2">Valutazione Revisione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Riga per Utente 1 -->
+          <tr class="bg-gray-100 hover:bg-gray-200">
+            <td class="border border-gray-300 px-4 py-2" rowspan="3">Qual è il tuo animale preferito?</td>
+            <td class="border border-gray-300 px-4 py-2">Utente 1</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Cane"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Cane', 'First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.5" min="0" max="5">
+            </td>
+            <td class="border border-gray-300 px-4 py-2">-</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Ottima scelta, ma perché non un gatto?"</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Ottima scelta, ma perché non un gatto?', 4.0, 4.5)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Cane da pastore"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Cane da pastore', 'Revisione First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.8" min="0" max="5">
+            </td>
+          </tr>
+          <!-- Riga per Utente 2 -->
+          <tr class="bg-gray-100 hover:bg-gray-200">
+            <td class="border border-gray-300 px-4 py-2">Utente 2</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Gatto"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Gatto', 'First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.2" min="0" max="5">
+            </td>
+            <td class="border border-gray-300 px-4 py-2">-</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Interessante, ma i cani sono più fedeli."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Interessante, ma i cani sono più fedeli.', 4.3, 4.2)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Gatto siamese"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Gatto siamese', 'Revisione First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.6" min="0" max="5">
+            </td>
+          </tr>
+          <!-- Riga per Utente 3 -->
+          <tr class="bg-gray-100 hover:bg-gray-200">
+            <td class="border border-gray-300 px-4 py-2">Utente 3</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Cavallo"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Cavallo', 'First Answer')">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">
+              <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="4.9" min="0" max="5">
+            </td>
+            <td class="border border-gray-300 px-4 py-2">-</td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Un animale nobile e forte."</p>
+              <button class="expand-button" onclick="toggleComment(this.parentElement, 'Un animale nobile e forte.', 4.8, 4.9)">🔍</button>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 truncate">
+              <p>"Cavallo arabo"</p>
+              <button class="expand-button" onclick="toggleCellContent(this.parentElement, 'Cavallo arabo', 'Revisione First Answer')">🔍</button>
+            </td>
             <td class="border border-gray-300 px-4 py-2">
               <input type="number" step="0.1" class="w-full border border-gray-300 px-2 py-1" value="5.0" min="0" max="5">
             </td>
