@@ -60,3 +60,52 @@ function changePage(direction) {
 document.addEventListener('DOMContentLoaded', () => {
   showPage(currentPage);
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const expandableCells = document.querySelectorAll('.expandable');
+
+  expandableCells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      const content = cell.getAttribute('data-content');
+      showPopup(content);
+    });
+  });
+});
+
+function showPopup(content, forma = 5, contenuto = 4) {
+  // Crea l'overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'popup-overlay';
+  overlay.addEventListener('click', closePopup);
+
+  // Crea la finestra popup
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = `
+    <div class="popup-content">
+      <div class="popup-left">
+        <p>${content}</p>
+      </div>
+      <div class="popup-right">
+        <p><strong>Valutazione Forma:</strong> ${forma}</p>
+        <p><strong>Valutazione Contenuto:</strong> ${contenuto}</p>
+      </div>
+    </div>
+    <div class="popup-footer">
+      <label for="valutazione-docente"><strong>Valutazione Docente:</strong></label>
+      <input id="valutazione-docente" type="number" step="0.1" min="0" max="5" class="valutazione-input" placeholder="Inserisci valutazione">
+    </div>
+    <button onclick="closePopup()">Chiudi</button>
+  `;
+
+  // Aggiungi overlay e popup al body
+  document.body.appendChild(overlay);
+  document.body.appendChild(popup);
+}
+function closePopup() {
+  const overlay = document.querySelector('.popup-overlay');
+  const popup = document.querySelector('.popup');
+  if (overlay) overlay.remove();
+  if (popup) popup.remove();
+}

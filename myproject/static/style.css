@@ -86,3 +86,93 @@ body {
   .styled-table td {
     text-align: center;
   }
+
+  /* Stile per le celle espandibili */
+.expandable {
+  cursor: pointer; /* Mostra la manina */
+  position: relative; /* Necessario per posizionare la finestra ausiliaria */
+}
+
+.expandable:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Oscura la cella */
+}
+
+/* Stile per la finestra ausiliaria */
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  max-width: 750px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Stile per il pulsante "Chiudi" */
+.popup button {
+  display: block;
+  margin: 16px auto 0; /* Centra il pulsante e aggiunge spazio sopra */
+  padding: 10px 20px;
+  background-color: #ff4d4d; /* Colore rosso per evidenziarlo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #e60000; /* Colore più scuro al passaggio del mouse */
+}
+
+
+/* Stile per il contenuto del popup */
+.popup-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.popup-left {
+  flex: 1;
+  text-align: left;
+}
+
+.popup-right {
+  flex: 1;
+  text-align: right;
+}
+
+.popup-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.valutazione-input {
+  display: block;
+  margin: 8px auto;
+  padding: 8px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
